@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherApp</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌤️</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#1e3a8a',
+                        'brand-light': '#3b82f6',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen text-gray-800">
+
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-brand-blue mb-2">WeatherApp</h1>
+            <p class="text-gray-600">Muy importante checar el clima antes de salir.</p>
+        </header>
+
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <form id="search-form" class="flex flex-col gap-2 relative mb-4">
+                <div class="flex gap-2">
+                    <input type="text" id="city-input" list="city-suggestions" placeholder="Ej: Madrid, Buenos Aires..."
+                        class="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-light"
+                        autocomplete="off">
+                    <datalist id="city-suggestions"></datalist>
+                    <button type="submit"
+                        class="bg-brand-blue text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition duration-300 font-semibold">
+                        Buscar
+                    </button>
+                </div>
+                <p id="error-message" class="text-red-500 text-sm hidden mt-1 ml-1 font-semibold"></p>
+            </form>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                <div>
+                    <h6 class="text-xs font-bold text-gray-500 uppercase mb-2">Favoritos:</h6>
+                    <div id="favorites-container" class="flex gap-2 flex-wrap">
+                    </div>
+                </div>
+
+                <div>
+                    <h6 class="text-xs font-bold text-gray-500 uppercase mb-2">Historial Reciente:</h6>
+                    <div id="history-container" class="flex gap-2 flex-wrap">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="weather-result" class="hidden">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+
+                <div id="weather-card"
+                    class="bg-gradient-to-br text-white p-6 rounded-xl shadow-lg flex flex-col items-center justify-center relative transition-colors duration-1000">
+
+                    <h2 id="city-name" class="text-3xl font-bold">Ciudad</h2>
+
+                    <p id="local-time" class="text-lg font-light opacity-90 mb-2">--:--</p>
+
+                    <img id="weather-icon" src="" alt="Icono clima" class="w-24 h-24 my-2">
+
+                    <p id="temperature" class="text-6xl font-bold mb-2">--°C</p>
+
+                    <p id="description" class="text-xl capitalize">--</p>
+
+                    <button id="add-favorite-btn"
+                        class="mt-4 text-xs bg-white text-blue-600 px-3 py-1 rounded-full hover:bg-gray-100 transition shadow-sm font-semibold">
+                        ♥ Agregar a Favoritos
+                    </button>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-yellow-400">
+                    <h3 class="text-xl font-bold text-gray-700 mb-4">💡 Recomendaciones de Viaje</h3>
+                    <p id="recommendation-text" class="text-gray-600 mb-4">
+                        Busca una ciudad para ver qué actividades puedes realizar.
+                    </p>
+                    <ul id="activity-list" class="list-disc list-inside text-gray-600 space-y-2">
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-gray-700 mb-4">Pronóstico (5 días)</h3>
+            <div id="forecast-container" class="grid grid-cols-2 md:grid-cols-5 gap-4">
+            </div>
+
+        </div>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
