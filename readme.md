@@ -54,6 +54,7 @@ Sigue estos pasos para correr el proyecto en tu máquina:
 https://weatherappbcb.netlify.app/
 
 ## Estructura del Proyecto
+```text
 weatherApp/
 ├── index.html        # Estructura principal
 ├── README.md         # Documentación
