@@ -1,6 +1,3 @@
-// --- UI.JS - Solo manipula el DOM (pinta HTML, cambia colores) ---
-
-// Elementos del DOM
 export const elements = {
     searchForm: document.getElementById('search-form'),
     weatherCard: document.getElementById('weather-card'),
@@ -9,19 +6,16 @@ export const elements = {
     errorMsg: document.getElementById('error-message'),
     weatherResult: document.getElementById('weather-result'),
     
-    // UI Clima
     cityNameEl: document.getElementById('city-name'),
     localTimeEl: document.getElementById('local-time'),
     weatherIconEl: document.getElementById('weather-icon'),
     tempEl: document.getElementById('temperature'),
     descEl: document.getElementById('description'),
     
-    // UI Recomendaciones y Pronóstico
     recTextEl: document.getElementById('recommendation-text'),
     activityListEl: document.getElementById('activity-list'),
     forecastContainer: document.getElementById('forecast-container'),
     
-    // UI Listas (Favoritos e Historial)
     favoritesContainer: document.getElementById('favorites-container'),
     historyContainer: document.getElementById('history-container'),
     addFavoriteBtn: document.getElementById('add-favorite-btn')
@@ -37,7 +31,6 @@ export function updateCurrentWeather(data) {
     elements.weatherIconEl.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 }
 
-// Actualizar hora local
 export function updateLocalTime(timeData) {
     elements.localTimeEl.textContent = `Hora local: ${timeData.string}`;
 }
@@ -47,18 +40,17 @@ export function changeBackgroundByHour(hour) {
     elements.weatherCard.className = "bg-gradient-to-br text-white p-6 rounded-xl shadow-lg flex flex-col items-center justify-center relative transition-colors duration-1000";
 
     if (hour >= 6 && hour < 17) {
-        // DÍA: De las 6 AM a las 4:59 PM (Azul brillante)
+        // De las 6 AM a las 4:59 PM (Azul)
         elements.weatherCard.classList.add('from-cyan-400', 'to-blue-500');
     } else if (hour >= 17 && hour < 20) {
-        // ATARDECER: De las 5 PM a las 7:59 PM (Naranja/Rosa)
+        // De las 5 PM a las 7:59 PM (Naranja/Rosa)
         elements.weatherCard.classList.add('from-orange-400', 'to-pink-600');
     } else {
-        // NOCHE: De las 8 PM a las 5:59 AM (Azul oscuro/Gris)
+        // De las 8 PM a las 5:59 AM (Azul oscuro/Gris)
         elements.weatherCard.classList.add('from-slate-900', 'to-purple-900');
     }
 }
 
-// Generar recomendaciones según el clima
 export function generateRecommendations(weatherMain) {
     elements.activityListEl.innerHTML = '';
     let activities = [];
@@ -116,7 +108,7 @@ export function renderForecast(data) {
     });
 }
 
-// Renderizar listas (favoritos/historial)
+// listas de favoritos/historial
 export function renderListUI(list, container, canDelete = false, onCityClick, onDeleteClick) {
     container.innerHTML = '';
 
@@ -154,7 +146,7 @@ export function renderListUI(list, container, canDelete = false, onCityClick, on
     });
 }
 
-// Renderizar sugerencias de ciudades
+// sugerencias de ciudades
 export function renderCitySuggestions(cities) {
     elements.cityList.innerHTML = '';
     cities.forEach(city => {
@@ -164,7 +156,6 @@ export function renderCitySuggestions(cities) {
     });
 }
 
-// Mostrar/ocultar elementos
 export function showWeatherResult() {
     elements.weatherResult.classList.remove('hidden');
     elements.errorMsg.classList.add('hidden');

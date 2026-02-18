@@ -1,5 +1,3 @@
-// --- MAIN.JS - El "Jefe". Solo inicializa y escucha eventos. ---
-
 import { getWeatherData, getCitySuggestions, getForecast } from './api.js';
 import { elements, updateCurrentWeather, updateLocalTime, changeBackgroundByHour, generateRecommendations, renderForecast, renderListUI, renderCitySuggestions, showWeatherResult, hideWeatherResult, showError, hideError } from './ui.js';
 import { saveFavorite, removeFavorite, getFavorites, addToHistory, getHistory } from './storage.js';

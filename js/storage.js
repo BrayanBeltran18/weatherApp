@@ -1,5 +1,3 @@
-// --- STORAGE.JS - Solo guarda/carga de LocalStorage ---
-
 const FAVORITES_KEY = 'weatherAppFavorites';
 const HISTORY_KEY = 'weatherAppHistory';
 
@@ -12,7 +10,7 @@ export function saveFavorite(city) {
         localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
         return true; // Se agregó exitosamente
     }
-    return false; // Ya existía
+    return false;
 }
 
 export function removeFavorite(city) {
