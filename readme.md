@@ -17,7 +17,7 @@
 
 ## Tecnologías Utilizadas
 
-El proyecto sigue una arquitectura **Modular (ES6)** para asegurar escalabilidad y limpieza de código:
+El proyecto sigue una arquitectura **Modular (ES6)** para tener limpieza de código:
 
 * **HTML5 Semántico**: Estructura base.
 * **Tailwind CSS (vía CDN)**: Diseño responsivo, moderno y estilizado.
@@ -48,7 +48,10 @@ Sigue estos pasos para correr el proyecto en tu máquina:
 3.  Instala la extensión **"Live Server"** (por Ritwick Dey).
 4.  Haz clic derecho en el archivo `index.html`.
 5.  Selecciona **"Open with Live Server"**.
-6.  ¡Listo! El proyecto se abrirá automáticamente en tu navegador.
+6.  Con estos pasos el proyecto se abrirá automáticamente en tu navegador.
+
+## Capturas de pantalla las puedes encontrar aquí:
+https://docs.google.com/document/d/1lz123-NjjZJyAHPujPOb_HXWbSnDlfwK-f4ooiimPv8/edit?usp=sharing
 
 ## La demostración la puedes encontrar en:
 https://weatherappbcb.netlify.app/
